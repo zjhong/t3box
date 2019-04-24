@@ -17,6 +17,14 @@ RUN apt-get update && \
         zlib1g-dev \
 # Install required 3rd party tools
         graphicsmagick && \
+	pecl install APCu-5.1.18; \
+	pecl install memcached-3.1.3; \
+	pecl install redis-4.3.0; \
+	docker-php-ext-enable \
+		apcu \
+		memcached \
+		redis \
+	; \
 # Configure extensions
     docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
     docker-php-ext-install -j$(nproc) mysqli soap gd zip opcache intl && \
