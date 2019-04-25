@@ -17,7 +17,7 @@ RUN apt-get update && \
         zlib1g-dev \
 # Install required 3rd party tools
         graphicsmagick && \
-	pecl install APCu-5.1.18; \
+	pecl install APCu-5.1.17; \
 	pecl install memcached-3.1.3; \
 	pecl install redis-4.3.0; \
 	docker-php-ext-enable \
