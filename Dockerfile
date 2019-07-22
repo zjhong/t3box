@@ -36,6 +36,8 @@ RUN buildDeps=" \
 	&& apt-get clean \
     && a2enmod rewrite
 ENV TZ=Asia/Shanghai
+# Enable mod_expires
+RUN cp /etc/apache2/mods-available/expires.load /etc/apache2/mods-enabled/
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 RUN echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen
